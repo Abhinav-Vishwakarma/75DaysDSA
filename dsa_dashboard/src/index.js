@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Dasboard from './components/Dashboard';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,7 +12,11 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dasboard />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
