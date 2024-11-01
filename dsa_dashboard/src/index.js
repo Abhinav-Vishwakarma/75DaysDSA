@@ -8,15 +8,21 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+// import Login from './components/Login';
+// import Data from './components/Navbar';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App/>,
   },
   {
     path: "/dashboard",
     element: <Dasboard />,
+  },
+  {
+    path: "/login",
+    element: <App/>,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
