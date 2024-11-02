@@ -25,7 +25,7 @@ function Register() {
     setTypingTimeout(
       setTimeout(async () => {
         try {
-          const response = await axios.get('http://localhost:5000/check-username', {
+          const response = await axios.get('https://seven5daysdsa-1.onrender.com/check-username', {
             params: { username: value }
           },{withCredentials: true,});
           if (response.data.status) {
@@ -61,7 +61,7 @@ function Register() {
     }
     // console.log(username,password);
     try{
-        const result = await axios.post('http://localhost:5000/register', { username, password });
+        const result = await axios.post('https://seven5daysdsa-1.onrender.com/register', { username, password });
         if(result.data){
           toast.success('You have successfully registered! Redirecting...', { autoClose: 2000 });
           setTimeout(() => {

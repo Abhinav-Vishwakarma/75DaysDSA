@@ -8,7 +8,7 @@ function Navbar() {
 
   const handleClick = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/logout',{withCredentials: true,});
+      const response = await axios.post('https://seven5daysdsa-1.onrender.com/logout',{withCredentials: true,});
       if (response.data===true){
         toast.success('Logging out.....', { autoClose: 1000 });
                 setTimeout(() => {

@@ -9,7 +9,7 @@ import bcrypt from 'bcrypt';
 import { Strategy as LocalStrategy } from 'passport-local';
 import multer from 'multer';
 import { google } from 'googleapis';
-import { readFileSync } from "fs";
+// import { readFileSync } from "fs";
 import { Stream } from "stream";
 import cookieParser from "cookie-parser";
 
@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://75-days-dsa.vercel.app/',
   credentials: true,
 }));
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET, // Use a secret from your .env
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // Set to true if using HTTPS
+  cookie: { secure: true } // Set to true if using HTTPS
 }));
 
 app.use(passport.initialize());
@@ -64,10 +64,10 @@ passport.use(new LocalStrategy(
 function checkLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     // If user is authenticated, send a response indicating they are already logged in
-    return res.redirect('http://localhost:3000/dashboard');
+    return res.redirect('https://75-days-dsa.vercel.app/dashboard');
 
     // return console.log(req.user.id );
-    // return res.redirect('http://localhost:3000/dashboard');
+    // return res.redirect('https://75-days-dsa.vercel.app/dashboard');
   }
   next(); // Continue to the login route if not logged in
 }

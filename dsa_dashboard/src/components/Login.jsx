@@ -12,7 +12,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/login', { username, password }, { withCredentials: true });
+            const response = await axios.post('https://seven5daysdsa-1.onrender.com/login', { username, password }, { withCredentials: true });
             
             if (response.data === true) {
                 toast.success('Login successful! Redirecting...', { autoClose: 1000 });

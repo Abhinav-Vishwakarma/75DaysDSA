@@ -35,7 +35,7 @@
 //   const handleSaveClick = async (field) => {
 //     try {
 //       await axios.put(
-//         'http://localhost:5000/api/user',
+//         'https://seven5daysdsa-1.onrender.com/api/user',
 //         { field, data: tempValue },
 //         { withCredentials: true }
 //       );
@@ -60,7 +60,7 @@
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5000/api/user', { withCredentials: true });
+//         const response = await axios.get('https://seven5daysdsa-1.onrender.com/api/user', { withCredentials: true });
 //         setFieldValues({
 //           CC_ID: response.data.CC_ID || 'Please Set!',
 //           LC_ID: response.data.LC_ID || 'Please Set!',
@@ -183,7 +183,7 @@ function Dashboard() {
   const handleUpdateClick = async () => {
     try {
       const result=await axios.put(
-        'http://localhost:5000/api/user',
+        'https://seven5daysdsa-1.onrender.com/api/user',
         tempValues,
         { withCredentials: true }
       );
@@ -215,7 +215,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/user', { withCredentials: true });
+        const response = await axios.get('https://seven5daysdsa-1.onrender.com/api/user', { withCredentials: true });
         setFieldValues({
           CC_ID: response.data.CC_ID || 'Please Set!',
           LC_ID: response.data.LC_ID || 'Please Set!',
