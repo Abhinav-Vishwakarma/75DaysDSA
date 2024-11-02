@@ -84,7 +84,7 @@ function checkLoggedIn(req, res, next) {
 app.get('/api/check-auth', (req, res) => {
   console.log("api is called");
   if (req.isAuthenticated()) {
-    res.status(200).json({ loggedIn: true, userId: req.user.id });
+    res.status(200).json({ loggedIn: true, userId: req.cookies.id });
   } else if (req.cookies.userId) { // Check if the cookie exists
     res.status(200).json({ loggedIn: true, userId: req.cookies.userId }); // Optionally return userId from cookie
   } else {
@@ -168,8 +168,9 @@ app.get("/api/authentication", (req, res) => {
 // Success route
 app.get('/success', (req, res) => {
   // console.log(req.user.id);
-  // res.cookie('id', req.user.id, {httpOnly: true,secure:true }); 
+  res.cookie('id', req.cookies.id, {httpOnly: true,secure:true }); 
   res.send(true);
+  
 });
 
 // Failure route
@@ -254,7 +255,7 @@ app.get('/api/user', async (req, res) => {
   // console.log(req.isAuthenticated());
   if(req.isAuthenticated()){
     try {
-      const [results] = await db.query('SELECT * FROM credential WHERE id = ?', [req.user.id]);
+      const [results] = await db.query('SELECT * FROM credential WHERE id = ?', [req.cookies.id]);
       if (results.length > 0) {
         res.json(results[0]);
       } else {
@@ -302,7 +303,7 @@ app.put('/api/user', async (req, res) => {
     // Add the id as the last value for the WHERE clause
     console.log(query);
     
-    const [updateResult] = await db.query(query, [...valuesToUpdate, req.user.id]);
+    const [updateResult] = await db.query(query, [...valuesToUpdate, req.cookies.id]);
 
     if (updateResult.affectedRows > 0) {
       // Fetch the updated user data to return to the client
