@@ -168,7 +168,7 @@ app.get("/api/authentication", (req, res) => {
 // Success route
 app.get('/success', (req, res) => {
   // console.log(req.user.id);
-  res.cookie('id', req.user.id, {httpOnly: true,secure:false }); 
+  res.cookie('id', req.user.id, {httpOnly: true,secure:true }); 
   res.send(true);
 });
 
