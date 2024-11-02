@@ -1,6 +1,5 @@
 {
   "name": "dsa_dashboard",
-  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,6 +19,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

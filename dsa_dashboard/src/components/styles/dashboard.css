@@ -1,0 +1,42 @@
+.body_dashboard{
+    background-color: rgb(246, 237, 255);
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    z-index: 1;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+}
+.account_container{
+    background-color: rgba(210, 136, 136, 0.621); 
+    /* width:50%; */
+    height: fit-content;
+    min-height: 500px;
+    margin:50px;
+    border-radius: 10px;
+    /* min-width: 700px; */
+}
+.info_container{
+    margin:10px;
+}
+.info_container td img{
+    width:100px;
+    height:auto;
+    border-radius: 100%;
+}
+/* Default input style */
+.info_container input {
+    /* border: 2px solid lightgreen; */
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: white;
+  }
+  
+  /* Static green border for editable input */
+  .editable-border input{
+    border: 2px solid lightgreen;
+    /* outline: none; */
+  }
+  
