@@ -16,10 +16,19 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 const app = express();
 
-app.use(cors({
-  origin: 'https://75-days-dsa.vercel.app/',
-  credentials: true,
+const allowedOrigins = ['https://75-days-dsa.vercel.app'];
+
+app.use(cors((req, callback) => {
+  const origin = req.header('Origin');
+  if (allowedOrigins.includes(origin)) {
+    callback(null, { origin: true, credentials: true });
+  } else {
+    callback(new Error('Not allowed by CORS'));
+  }
 }));
+
+// Handle preflight requests
+app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
