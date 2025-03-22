@@ -1,0 +1,20 @@
+// Default Light Theme (Applied to `html[data-theme="light"]`)
+:root {
+    --bg-color: #dff4fb;
+    --text-color: #000000;
+    --primary-color: #ffffff;
+}
+
+// Dark Theme (Applied to `html[data-theme="dark"]`)
+[data-theme="dark"] {
+    --bg-color: #394447;
+    --text-color: #ffffff;
+    --primary-color: #000000;
+}
+
+// Global Styles using Theme Variables
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
